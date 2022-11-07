@@ -1,6 +1,6 @@
 from app import db
-from flask_login import UserMixin
-from app import login
+#from flask_login import UserMixin
+#from app import login
 
 '''
 @login.user_loader
