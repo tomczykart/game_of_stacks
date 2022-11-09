@@ -1,2 +1,2 @@
-FLASK_APP=plotter.py
+FLASK_APP=stack.py
 FLASK_DEBUG=1

@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+{% block content%}
+
+
+<!--        LOGIN FORM       -->
+<h1>Sign in</h1>
+<form>
+     {{ form.hodden_tag() }}
+    <div>
+    <label for='title'>Login Form</label>
+    <br>
+    {{ form.username.label}}
+    {{ form.username(size=32) }}
+    <br>
+    {{ form.email.label}}
+    {{ form.email(size=32) }}
+    <br>
+    {{ form.password.label}}
+    {{ form.password(size=32) }}
+    <br>
+    {{ form.remember_me.label}}
+    {{ form.remember_me() }}
+    <br>
+    {{ form.submit() }}
+    </div>
+</form>
+<!--        LOGIN FORM       -->
+
+
+{% endblock %}
