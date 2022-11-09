@@ -5,16 +5,17 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 
+
 # create flask instance and load its configuration
 app = Flask(__name__)
 app.config.from_object(Config)
 
 # create database instance
 db = SQLAlchemy(app)
-#create database migration engine obcjct
+# create database migration engine object
 migrate = Migrate(app, db)
 
-# initialize LoginMenager extension
+# initialize LoginManager extension
 login = LoginManager(app)
 login.login_view = 'login'
 

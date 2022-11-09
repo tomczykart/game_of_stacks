@@ -1,12 +1,12 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, BooleanField, SubmitField, FileField
+from wtforms import StringField, SubmitField, BooleanField, SubmitField, FileField, PasswordField, EmailField
 from wtforms.validators import DataRequired, Email, ValidationError
-#from app.models import User, SearchQuery
+# from app.models import User, SearchQuery
 
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
-    email = StringField('Email', validators=[EmailRequired()])
+    email = EmailField('Email', validators=[Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
@@ -19,8 +19,7 @@ class QubeForm(FlaskForm):
     qube_wall_4 = FileField('icon4')
     qube_wall_5 = FileField('icon5')
     qube_wall_6 = FileField('icon6')
-    #qube_color = 
-
+    # qube_color =
 
 
 '''
