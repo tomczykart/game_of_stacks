@@ -1,7 +1,7 @@
 from flask import render_template, flash, redirect, url_for, session, request
 from flask_login import current_user, login_user, logout_user, login_required
 from app import app, db
-from app.forms import LoginForm
+from app.forms import LoginForm, RegisterForm
 from app.models import User, UserCube
 from werkzeug.urls import url_parse
 
@@ -41,6 +41,22 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+@app.route('/register')
+def register():
+    # if user is already login redirect him to index
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    # set up registration
+    form = RegisterForm()
+    if form.validate_on_submit():
+        user = User(username=form.username.data, email=form.email.data)
+        user.set_password(form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        flash('New user added')
+        return redirect(url_for('login'))
+    return render_template('register.html', title='Register', form=form)
 
 
 @app.route('/add_cube', methods=['GET', 'POST'])
