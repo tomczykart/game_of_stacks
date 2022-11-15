@@ -1,3 +1,5 @@
 app/.flaskenv
 migrations/
 venv/
+.replit
+.breakpoints
