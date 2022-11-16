@@ -69,8 +69,8 @@ def register():
         flash('Confirmation email sent')
         # login the user
         login_user(user)
-        # redirect to home
-        return redirect(url_for('index'))
+        # redirect to unconfirmed
+        return redirect(url_for('unconfirmed'))
     return render_template('register.html', title='Register', form=form)
 
 
@@ -92,6 +92,14 @@ def confirm_email(token):
         db.session.commit()
         flash('Email confirmed')
     return redirect(url_for('index'))
+
+@app.route('/unconfirmed')
+@login_required
+def unconfirmed():
+    if current.user.confirmed:
+        redirect(url_for('index'))
+    flash('confirm your email')
+    return render_template('unconfirmed.html', title='Unconfirmed')
 
 
 @app.route('/add_cube', methods=['GET', 'POST'])
