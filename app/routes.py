@@ -5,6 +5,7 @@ from app.token import generate_token, confirm_token
 from app.forms import LoginForm, RegisterForm
 from app.models import User  # UserCube
 from app.email import send_email
+from app.decorators import check_confirmed
 from werkzeug.urls import url_parse
 from datetime import datetime
 
@@ -93,6 +94,19 @@ def confirm_email(token):
         flash('Email confirmed')
     return redirect(url_for('index'))
 
+
+@app.route('/resend')
+@login_reguired
+def resend():
+    token = generate_token(current_user.email)
+    confirm_url = url_for('confirm_email', token=token, _external=True)
+    html = render_template('confirmation_email.html', confirm_url=confirm_url)
+    subject = "Game of Stacks email confirmation"
+    send_email(user.email, subject, html)
+    flash('Confirmation email sent')
+    return redirect(url_for('unconfirmed'))
+
+
 @app.route('/unconfirmed')
 @login_required
 def unconfirmed():
@@ -104,5 +118,6 @@ def unconfirmed():
 
 @app.route('/add_cube', methods=['GET', 'POST'])
 @login_required
+@check_confirmed
 def add_cube():
     return render_template('add_cube.html', title='Add Cube')
