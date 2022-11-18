@@ -75,7 +75,7 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 
-@app.route('confirm/<token>')
+@app.route('/confirm/<token>')
 @login_required
 def confirm_email(token):
     email = ''
@@ -96,13 +96,13 @@ def confirm_email(token):
 
 
 @app.route('/resend')
-@login_reguired
+@login_required
 def resend():
     token = generate_token(current_user.email)
     confirm_url = url_for('confirm_email', token=token, _external=True)
     html = render_template('confirmation_email.html', confirm_url=confirm_url)
     subject = "Game of Stacks email confirmation"
-    send_email(user.email, subject, html)
+    send_email(current_user.email, subject, html)
     flash('Confirmation email sent')
     return redirect(url_for('unconfirmed'))
 
@@ -110,7 +110,7 @@ def resend():
 @app.route('/unconfirmed')
 @login_required
 def unconfirmed():
-    if current.user.confirmed:
+    if current_user.confirmed:
         redirect(url_for('index'))
     flash('confirm your email')
     return render_template('unconfirmed.html', title='Unconfirmed')
