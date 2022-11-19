@@ -10,8 +10,4 @@ def make_shell_context():
 
 
 if __name__ == "__main__":  # Makes sure this is the main process
-	app.run( # Starts the site
-		host=os.environ.get('IP', '0.0.0.0'),  # EStablishes the host, required for repl to detect the site
-		port=int(os.environ.get('PORT', 8080)),  # Randomly select the port the machine hosts on.
-    debug=True
-	)
+	app.run(debug=True, port=8080, host='0.0.0.0')
