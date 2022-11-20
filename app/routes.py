@@ -14,6 +14,10 @@ from datetime import datetime
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     # render index page
+    flash('Test message, nooydysdfsf2 2 sawsome')
+    flash('2Test message, nooydysdfsf2 2 sawsome')
+    flash('3statataTest message, nooydysdfsf2 2 sawsome')
+    flash('4Test')
     return render_template('index.html', title='HOME')
 
 
@@ -116,8 +120,8 @@ def unconfirmed():
     return render_template('unconfirmed.html', title='Unconfirmed')
 
 
-@app.route('/add_cube', methods=['GET', 'POST'])
+@app.route('/addcube', methods=['GET', 'POST'])
 @login_required
 @check_confirmed
-def add_cube():
-    return render_template('add_cube.html', title='Add Cube')
+def addcube():
+    return render_template('addcube.html', title='Add Cube')

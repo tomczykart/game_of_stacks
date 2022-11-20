@@ -38,13 +38,4 @@ class CubeForm(FlaskForm):
     cube_wall_5 = FileField('icon5')
     cube_wall_6 = FileField('icon6')
     # cube_color =
-
-
-'''
-class SearchForm(FlaskForm):
-    search_query = StringField('Plot id number:', validators=[DataRequired()])
-    submit = SubmitField('Search')
-
-    def validate_search_query(self, search_query):#verify plot number
-
-'''
+    

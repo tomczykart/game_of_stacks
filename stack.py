@@ -1,7 +1,8 @@
 from app import app
 from app import db
-import os
 from app.models import User, UserCube
+
+import os
 
 
 @app.shell_context_processor

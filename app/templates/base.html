@@ -8,6 +8,20 @@
   </head>
   <body>
 
+    <!--        NAV                -->
+    <nav>
+      <h1 class='bg-primary'>Menu</h1>
+      <a href="{{ url_for('index') }}">Home</a></a>
+      <a href="{{ url_for('login') }}">Login</a></a>
+      <a href="{{ url_for('register') }}">Register</a></a>
+      <a href="{{ url_for('addcube') }}">Add Cube</a></a>
+      <button type="button" class="btn btn-primary" id="liveToastBtn">Show flash errors</button>
+      
+    </nav>
+
+
+
+
     <!--        MAIN BODY                -->
       <section>
           <div class="px-4 py-3 my-2">
@@ -41,11 +55,30 @@
     {% endwith %}
     </div>
     </div>
-      
+
+    
     <!--        FLASH MESSAGE                -->
 
       
     <!--        MAIN BODY                -->
+    
+    <!--        SHOW BOOTSTRAP TOAST                -->
+    
+   
+    <script>
+      document.getElementById("liveToastBtn").onclick = function() {
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'));
+        var toastList = toastElList.map(function(toastEl) {
+          return new bootstrap.Toast(toastEl)
+        });
+       toastList.forEach(toast => toast.show());
+      };
+
+    </script>
+   
+    
+    <!--        SHOW BOOTSTRAP TOAST                -->
+    
 
   <!-- BOOTSTRAP JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
