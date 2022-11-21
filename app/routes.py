@@ -20,7 +20,7 @@ def index():
     flash('4Test')
     return render_template('index.html', title='HOME')
 
-
+'''
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     # if user is already login redirect him to index
@@ -43,7 +43,30 @@ def login():
             next_page = url_for('index')
         return redirect(next_page)
     return render_template('login.html', title='Sign In', form=form)
-
+'''
+'''
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        # assign user data with database query
+        user = User.query.filter_by(username=form.username.data).first()
+        # check for user and his password
+        if user is None or not user.check_password(form.password.data):
+            flash('Invalid username or password')
+            return redirect(url_for('login'))
+        # login user
+        login_user(user)
+        flash('Successfully logged in')
+        return redirect(url_for('index'))
+    return render_template('login.html', title='Sign In', form=form)
+'''
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    user = User.query.filter_by(username='artur').first()
+    login_user(user)
+    return render_template('login.html', title='Sign In', form=form)
 
 @app.route('/logout')
 def logout():
@@ -121,8 +144,8 @@ def unconfirmed():
 
 
 @app.route('/addcube', methods=['GET', 'POST'])
-@login_required
-@check_confirmed
+#@login_required
+#@check_confirmed
 def addcube():
     form = CubeForm()
     return render_template('addcube.html', title='Add Cube', form=form)

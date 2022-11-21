@@ -6,7 +6,6 @@ from app.models import User, UserCube
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
-    email = EmailField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
@@ -37,5 +36,6 @@ class CubeForm(FlaskForm):
     cube_wall_4 = FileField('icon4')
     cube_wall_5 = FileField('icon5')
     cube_wall_6 = FileField('icon6')
+    submit = SubmitField('Add Cube')
     # cube_color =
     

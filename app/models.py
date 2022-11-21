@@ -30,7 +30,7 @@ class User(UserMixin, db.Model):
         self.registered_on = datetime.now()
 
     def __repr__(self):  # define text representation when instance is called
-        return f'<User id: {self.id}, and email: {self.email}>'
+        return f'<User id: {self.id}, username:{self.username} and email: {self.email}>'
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
