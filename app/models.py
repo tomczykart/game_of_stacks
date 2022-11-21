@@ -52,6 +52,18 @@ class UserCube(UserMixin, db.Model):
     cube_wall5 = db.Column(db.String(1600), index=True)
     cube_wall6 = db.Column(db.String(1600), index=True)
     time_created = db.Column(db.DateTime, index=True)
+    
+    def __init__(self, owner, cube_color, cube_wall1,
+                cube_wall2, cube_wall3, cube_wall4, cube_wall5, cube_wall6):
+        self.owner = owner
+        self.cube_color = cube_color
+        self.cube_wall1 = cube_wall1
+        self.cube_wall2 = cube_wall2
+        self.cube_wall3 = cube_wall3
+        self.cube_wall4 = cube_wall4
+        self.cube_wall5 = cube_wall5
+        self.cube_wall6 = cube_wall6
+        self.time_created = datetime.now()
 
     def __repr__(self):
-        return f'<New cube created: {self.qube_id}, owner: {self.owner}>'
+        return f'<New cube created: {self.cube_id}, owner: {self.owner}>'

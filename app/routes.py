@@ -13,12 +13,9 @@ from datetime import datetime
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
+    data = UserCube.query.all()
     # render index page
-    flash('Test message, nooydysdfsf2 2 sawsome')
-    flash('2Test message, nooydysdfsf2 2 sawsome')
-    flash('3statataTest message, nooydysdfsf2 2 sawsome')
-    flash('4Test')
-    return render_template('index.html', title='HOME')
+    return render_template('index.html', title='HOME', data=data)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -125,6 +122,22 @@ def unconfirmed():
 @check_confirmed
 def addcube():
     form = CubeForm()
+    if form.validate_on_submit():
+        owner=current_user.username
+        cube_position = 1
+        cube_floor = 1
+        cube_wall1 = form.cube_wall1.data
+        cube_wall2 = 2
+        cube_wall3 = 3
+        cube_wall4 = 4
+        cube_wall5 = 5
+        cube_wall6 = 6
+        cube_color = 'red'
+        cube = UserCube(owner,cube_color, cube_wall1, cube_wall2,
+        cube_wall3, cube_wall4, cube_wall5, cube_wall6)
+        db.session.add(cube)
+        db.session.commit()
+        
     return render_template('addcube.html', title='Add Cube', form=form)
     
     

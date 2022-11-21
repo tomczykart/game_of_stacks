@@ -2,4 +2,16 @@
 {% block content%}
 
 <h1>Welcome in game of Stacks!</h1>
+
+<h1>Users table</h1>
+
+{% for item in data %}
+<tr>
+    <td>{{ item.cube_id }}</td>
+    <td>{{ item.cube_color }}</td>
+    <td>{{ item.cube_wall1 }}</td>
+</tr><br>
+{% endfor %}
+
+
 {% endblock %}

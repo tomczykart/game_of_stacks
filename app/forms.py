@@ -30,12 +30,12 @@ class RegisterForm(FlaskForm):
 
 
 class CubeForm(FlaskForm):
-    cube_wall_1 = FileField('icon1')
-    cube_wall_2 = FileField('icon2')
-    cube_wall_3 = FileField('icon3')
-    cube_wall_4 = FileField('icon4')
-    cube_wall_5 = FileField('icon5')
-    cube_wall_6 = FileField('icon6')
+    cube_wall1 = StringField('icon1', validators=[DataRequired()])
+    cube_wall2 = FileField('icon2')
+    cube_wall3 = FileField('icon3')
+    cube_wall4 = FileField('icon4')
+    cube_wall5 = FileField('icon5')
+    cube_wall6 = FileField('icon6')
     submit = SubmitField('Add Cube')
     # cube_color =
     
