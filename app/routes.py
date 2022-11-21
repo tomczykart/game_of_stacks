@@ -2,8 +2,8 @@ from flask import render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user, logout_user, login_required
 from app import app, db
 from app.token import generate_token, confirm_token
-from app.forms import LoginForm, RegisterForm
-from app.models import User  # UserCube
+from app.forms import LoginForm, RegisterForm, CubeForm
+from app.models import User, UserCube
 from app.email import send_email
 from app.decorators import check_confirmed
 from werkzeug.urls import url_parse
@@ -124,4 +124,11 @@ def unconfirmed():
 @login_required
 @check_confirmed
 def addcube():
-    return render_template('addcube.html', title='Add Cube')
+    form = CubeForm()
+    return render_template('addcube.html', title='Add Cube', form=form)
+    
+    
+@app.route('/users', methods=['GET', 'POST'])
+def users():
+    data = User.query.all()
+    return render_template('users.html', title='Add Cube', data=data)

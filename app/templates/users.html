@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% block content%}
+
+<h1>Users table</h1>
+
+{% for item in data %}
+<tr>
+    <td>{{ item.id }}</td>
+    <td>{{ item.username }}</td>
+    <td>{{ item.email }}</td>
+</tr><br>
+{% endfor %}
+
+
+
+
+{% endblock %}
