@@ -13,9 +13,10 @@ from datetime import datetime
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
-    data = UserCube.query.all()
+    cube_data = UserCube.query.all()
+    user_data = User.query.all()
     # render index page
-    return render_template('index.html', title='HOME', data=data)
+    return render_template('index.html', title='HOME', cube_data=cube_data, user_data=user_data)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -123,7 +124,13 @@ def unconfirmed():
 def addcube():
     form = CubeForm()
     if form.validate_on_submit():
-        owner=current_user.username
+        owner=current_user.id
+        
+        #check if owner already has a cube
+        if UserCube.query.filter_by(owner=owner).all():
+            flash('You can have only one cube')
+            return redirect(url_for('index'))
+    
         cube_position = 1
         cube_floor = 1
         cube_wall1 = form.cube_wall1.data
@@ -133,7 +140,9 @@ def addcube():
         cube_wall5 = 5
         cube_wall6 = 6
         cube_color = 'red'
-        cube = UserCube(owner,cube_color, cube_wall1, cube_wall2,
+        cube_position = 1
+        cube_floor = 1
+        cube = UserCube(owner, cube_position, cube_floor, cube_color, cube_wall1, cube_wall2,
         cube_wall3, cube_wall4, cube_wall5, cube_wall6)
         db.session.add(cube)
         db.session.commit()

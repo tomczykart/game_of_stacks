@@ -5,13 +5,43 @@
 
 <h1>Users table</h1>
 
-{% for item in data %}
-<tr>
-    <td>{{ item.cube_id }}</td>
-    <td>{{ item.cube_color }}</td>
-    <td>{{ item.cube_wall1 }}</td>
-</tr><br>
+
+
+<!--        Cube Table Mock                -->
+{% for item in cube_data %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      Level 1
+    </div>
+    <div class="col-sm-2">
+      Cube1
+      {{ item.cube_id }}
+      {{ item.cube_color }}
+      {{ item.cube_wall1 }}
+    </div>
+    <div class="col-sm-2">
+      Cube2
+    </div>
+    <div class="col-sm-2">
+      Cube3
+    </div>
+    <div class="col-sm-2">
+      Cube4
+    </div>
+  </div>
+</div>
+<br>
 {% endfor %}
+
+<div id="cube_table"></div>
+
+<!--        Cube Table Mock                -->
+
+<!--        Java for cube table          -->
+<script src="{{ url_for('static', filename='js/cube_script.js') }}"></script>
+<!--        Java for cube table          -->
+
 
 
 {% endblock %}
