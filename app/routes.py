@@ -17,7 +17,7 @@ def index():
     cube_data = UserCube.query.all()
     user_data = User.query.all()
     tower = StackTower()
-    flash(tower.generate_tower())
+    flash(tower.return_cube(1,1).cube_wall1)
     # render index page
     return render_template('index.html', title='HOME', cube_data=cube_data, user_data=user_data)
 

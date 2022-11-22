@@ -10,7 +10,7 @@ class StackTower():
    
     def __init__(self):
         self.cubes = ""
-        #self.generate_tower()
+        self.generate_tower()
         pass
     
     def generate_tower(self):
@@ -22,8 +22,12 @@ class StackTower():
         
     def return_cube(self, floor, position):
         index = (int(floor)-1)*4 + int(position)-1
-        cube = self.cubes[index]
-        return cube
+        try:
+            cube = self.cubes[index]
+            return cube
+        except IndexError:
+            raise IndexError
+        
  
     
     def find_your_cube(self, cube_owner_id):
