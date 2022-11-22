@@ -5,6 +5,7 @@ from app.token import generate_token, confirm_token
 from app.forms import LoginForm, RegisterForm, CubeForm
 from app.models import User, UserCube
 from app.email import send_email
+from app.tower import StackTower
 from app.decorators import check_confirmed
 from werkzeug.urls import url_parse
 from datetime import datetime
@@ -15,6 +16,8 @@ from datetime import datetime
 def index():
     cube_data = UserCube.query.all()
     user_data = User.query.all()
+    tower = StackTower()
+    flash(tower.generate_tower())
     # render index page
     return render_template('index.html', title='HOME', cube_data=cube_data, user_data=user_data)
 
