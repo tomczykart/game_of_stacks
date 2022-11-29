@@ -1,6 +1,40 @@
 {% extends 'base.html'%}
 {% block content%}
 
+
+
+<!--        Babylon.js         -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>
+        <script src="https://assets.babylonjs.com/generated/Assets.js"></script>
+        <script src="https://preview.babylonjs.com/ammo.js"></script>
+        <script src="https://preview.babylonjs.com/cannon.js"></script>
+        <script src="https://preview.babylonjs.com/Oimo.js"></script>
+        <script src="https://preview.babylonjs.com/earcut.min.js"></script>
+        <script src="https://preview.babylonjs.com/babylon.js"></script>
+        <script src="https://preview.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
+        <script src="https://preview.babylonjs.com/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js"></script>
+        <script src="https://preview.babylonjs.com/postProcessesLibrary/babylonjs.postProcess.min.js"></script>
+        <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+        <script src="https://preview.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
+        <script src="https://preview.babylonjs.com/gui/babylon.gui.min.js"></script>
+        <script src="https://preview.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
+
+<!--        Babylon.js         -->
+
+
+<!--          Style          -->
+<style>
+
+#renderCanvas {
+    width: 100%;
+    height: 30%;
+    touch-action: none;
+}
+
+</style>
+
+<!--          Style          -->
+
 <h1>Welcome in game of Stacks!</h1>
 
 <h1>Users table</h1>
@@ -36,7 +70,10 @@
 
 <div id="cube_table"></div>
 
-<!--        Cube Table Mock                -->
+<!--        Babilon canvas                -->
+<canvas id="renderCanvas"></canvas>
+<!--        Babilon canvas                -->
+
 
 <!--        Java for cube table          -->
 <script src="{{ url_for('static', filename='js/cube_script.js') }}"></script>

@@ -29,7 +29,6 @@ class StackTower():
             raise IndexError
         
  
-    
     def find_your_cube(self, cube_owner_id):
         pass
     
