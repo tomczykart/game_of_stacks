@@ -16,5 +16,7 @@ def save_stack(stack):
         json.dump(stack, f)
 
 
-stack1 = choose_stack("stack1", (1, 3, 3, 4, 5, 9))
-save_stack(stack1)
+if __name__ == "__main__":
+    print("Hello, World!")
+    stack1 = choose_stack("stack1", (1, 3, 3, 4, 5, 9))
+    save_stack(stack1)
