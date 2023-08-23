@@ -1,2 +1,5 @@
 data.json
 .vscode/settings.json
+stackapp/__pycache__/__init__.cpython-311.pyc
+instance/stackapp.sqlite
+stackapp/__pycache__/db.cpython-311.pyc
