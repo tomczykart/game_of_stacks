@@ -1,11 +1,14 @@
 import os
 
 from flask import Flask
-from . import db
 
 
 # application factory function
 def create_app(test_config=None):
+    # imports from factory
+    from . import db
+    from . import home
+
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
@@ -33,5 +36,8 @@ def create_app(test_config=None):
 
     # initialize database
     db.init_app(app)
+
+    # register blueprint home
+    app.register_blueprint(home.bp)
 
     return app
