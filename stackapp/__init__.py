@@ -38,6 +38,6 @@ def create_app(test_config=None):
     db.init_app(app)
 
     # register blueprint home
-    app.register_blueprint(home.bp)
+    app.register_blueprint(home.home_bp)
 
     return app

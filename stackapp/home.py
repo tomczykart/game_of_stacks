@@ -1,12 +1,11 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 
 # register blueprint
-bp = Blueprint("home", __name__, template_folder="templates")
+home_bp = Blueprint("home", __name__, template_folder="templates")
 
 
-# home view
-@bp.route("/home", methods=("GET", "POST"))
-def home():
-    return "This is home page"
-    # return render_template("home/home.html")
+# Home view
+@home_bp.route("/index", methods=("GET", "POST"))
+def index():
+    return render_template("index.html")
