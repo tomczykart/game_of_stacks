@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,50 +11,60 @@
 
 <body>
   <div class="container">
-    <canvas id="cubeCanvas"></canvas>
-    <div class="controls">
-      <div class="wall-input">
-        <label for="wall1-color">Wall 1 Color:</label>
-        <input type="color" id="wall1-color">
-        <label for="wall1-digit">Wall 1 Digit:</label>
-        <input type="number" id="wall1-digit" min="0" max="9">
+    <div class="left30">
+      <div class="controls-column">
+        <div class="controls">
+          <div class="wall-input">
+            <label for="wall1-color">Wall 1 Color:</label>
+            <input type="color" id="wall1-color" value="#ff0000">
+            <label for="wall1-digit">Wall 1 Digit:</label>
+            <input type="number" id="wall1-digit" min="0" max="9">
+          </div>
+          <div class="wall-input">
+            <label for="wall2-color">Wall 2 Color:</label>
+            <input type="color" id="wall2-color" value="#ff0000">
+            <label for="wall2-digit">Wall 2 Digit:</label>
+            <input type="number" id="wall2-digit" min="0" max="9">
+          </div>
+          <div class="wall-input">
+            <label for="wall3-color">Wall 3 Color:</label>
+            <input type="color" id="wall3-color" value="#ff0000">
+            <label for="wall3-digit">Wall 3 Digit:</label>
+            <input type="number" id="wall3-digit" min="0" max="9">
+          </div>
+          <div class="wall-input">
+            <label for="wall4-color">Wall 4 Color:</label>
+            <input type="color" id="wall4-color" value="#ff0000">
+            <label for="wall4-digit">Wall 4 Digit:</label>
+            <input type="number" id="wall4-digit" min="0" max="9">
+          </div>
+          <div class="wall-input">
+            <label for="wall5-color">Wall 5 Color:</label>
+            <input type="color" id="wall5-color" value="#ff0000">
+            <label for="wall5-digit">Wall 5 Digit:</label>
+            <input type="number" id="wall5-digit" min="0" max="9">
+          </div>
+          <div class="wall-input">
+            <label for="wall6-color">Wall 6 Color:</label>
+            <input type="color" id="wall6-color" value="#ff0000">
+            <label for="wall6-digit">Wall 6 Digit:</label>
+            <input type="number" id="wall6-digit" min="0" max="9">
+          </div>
+          <button id="changeDigits">Change Digits</button>
+        </div>
+        <div class="email-save-form">
+          <div class="email-form">
+            <input type="email" id="email" placeholder="Enter your email">
+          </div>
+          <div class="save-form">
+            <button id="saveButton">Save</button>
+            <button id="SeeStack">See Stack</button>
+          </div>
+        </div>
       </div>
-      <div class="wall-input">
-        <label for="wall2-color">Wall 2 Color:</label>
-        <input type="color" id="wall2-color">
-        <label for="wall2-digit">Wall 2 Digit:</label>
-        <input type="number" id="wall2-digit" min="0" max="9">
-      </div>
-      <div class="wall-input">
-        <label for="wall3-color">Wall 3 Color:</label>
-        <input type="color" id="wall3-color">
-        <label for="wall3-digit">Wall 3 Digit:</label>
-        <input type="number" id="wall3-digit" min="0" max="9">
-      </div>
-      <div class="wall-input">
-        <label for="wall4-color">Wall 4 Color:</label>
-        <input type="color" id="wall4-color">
-        <label for="wall4-digit">Wall 4 Digit:</label>
-        <input type="number" id="wall4-digit" min="0" max="9">
-      </div>
-      <div class="wall-input">
-        <label for="wall5-color">Wall 5 Color:</label>
-        <input type="color" id="wall5-color">
-        <label for="wall5-digit">Wall 5 Digit:</label>
-        <input type="number" id="wall5-digit" min="0" max="9">
-      </div>
-      <div class="wall-input">
-        <label for="wall6-color">Wall 6 Color:</label>
-        <input type="color" id="wall6-color">
-        <label for="wall6-digit">Wall 6 Digit:</label>
-        <input type="number" id="wall6-digit" min="0" max="9">
-      </div>
-      <!-- Walls of the cube -->
-      <button id="changeDigits">Change Digits</button>
     </div>
-    <div class="save-form">
-      <input type="email" id="email" placeholder="Enter your email">
-      <button id="saveButton">Save</button>
+    <div class="right70">
+      <canvas id="cubeCanvas"></canvas>
     </div>
   </div>
   <script src="{{ url_for('static', filename='script.js') }}"></script>
