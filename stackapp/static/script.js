@@ -46,7 +46,6 @@ const loader = new THREE.TextureLoader();
 const texture = loader.load( 'jeden.png' );
 texture.colorSpace = THREE.SRGBColorSpace;
  
-
 // Create a cube and add it to the scene
 const geometry = new THREE.BoxGeometry(1, 1, 1, 128, 128, 128);
 const material = new THREE.MeshStandardMaterial({
