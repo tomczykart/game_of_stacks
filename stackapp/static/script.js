@@ -7,12 +7,13 @@ canvas.height = canvas.clientHeight;
 const scene = new THREE.Scene();
 
 // Create a camera and position it
-//const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 5);
-//camera.position.z = 2;
-
 const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 50);
 camera.position.z = 2;
 
+// Create light
+const light = new THREE.PointLight(0xffffff, 1, 100)
+light.position.set(0, 10, 10)
+scene.add(light)
 
 // Create a WebGL renderer
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
@@ -22,25 +23,23 @@ renderer.setClearColor(0xffffff);
 
 // Create a cube and add it to the scene
 const geometry = new THREE.BoxGeometry(1, 1, 1, 128, 128, 128);
-const material = new THREE.MeshBasicMaterial({ color: 0x44aa88 });
+const material = new THREE.MeshStandardMaterial({ color: 0x44aa88 });
 //const cube = new THREE.Mesh(geometry, material);
 
 // Create an array to store materials for each face
 const materials = [
-    new THREE.MeshBasicMaterial({ color: 0x44aa88 }), // Default color
-    new THREE.MeshBasicMaterial({ color: 0x44aa88 }),
-    new THREE.MeshBasicMaterial({ color: 0x44aa88 }),
-    new THREE.MeshBasicMaterial({ color: 0x44aa88 }),
-    new THREE.MeshBasicMaterial({ color: 0x44aa88 }),
-    new THREE.MeshBasicMaterial({ color: 0x44aa88 }),
+    new THREE.MeshStandardMaterial({ color: 0x44aa88 }), // Default color
+    new THREE.MeshStandardMaterial({ color: 0x44aa88 }),
+    new THREE.MeshStandardMaterial({ color: 0x44aa88 }),
+    new THREE.MeshStandardMaterial({ color: 0x44aa88 }),
+    new THREE.MeshStandardMaterial({ color: 0x44aa88 }),
+    new THREE.MeshStandardMaterial({ color: 0x44aa88 }),
 ];
 
 // Apply materials to the cube's geometry
 const cube = new THREE.Mesh(geometry, materials);
-
 // Set the cube's position to center it within the canvas
 cube.position.set(0, 0, 0);
-
 scene.add(cube);
 
 // Function to update the cube's color
