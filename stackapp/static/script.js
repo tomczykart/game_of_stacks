@@ -43,21 +43,15 @@ renderer.setClearColor(0xffffff);
 
 // Load textures
 const loader = new THREE.TextureLoader();
-const texture = loader.load( 'jeden.png' );
+const texture = loader.load(texture1Url);
 texture.colorSpace = THREE.SRGBColorSpace;
  
 // Create a cube and add it to the scene
 const geometry = new THREE.BoxGeometry(1, 1, 1, 128, 128, 128);
-const material = new THREE.MeshStandardMaterial({
-    color: 0x44aa88,
-    map: texture,
- });
-
-
 
 // Create an array to store materials for each face
 const materials = [
-    new THREE.MeshStandardMaterial({ color: 0x44aa88 }), // Default color
+    new THREE.MeshStandardMaterial({ color: 0x44aa88, map: texture, }), // Default color
     new THREE.MeshStandardMaterial({ color: 0x44aa88 }),
     new THREE.MeshStandardMaterial({ color: 0x44aa88 }),
     new THREE.MeshStandardMaterial({ color: 0x44aa88 }),
