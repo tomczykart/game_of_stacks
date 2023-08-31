@@ -41,9 +41,12 @@ renderer.setSize(sizes.width, sizes.height)
 // Set canvas background color to white
 renderer.setClearColor(0xffffff);
 
+
 // Load textures
 const loader = new THREE.TextureLoader();
-const texture = loader.load(texture1Url);
+const texture = loader.load("https://threejs.org/examples/textures/floors/FloorsCheckerboard_S_Diffuse.jpg");
+//  const texture = loader.load(texture1Url);
+// const texture = loader.load(tex);
 texture.colorSpace = THREE.SRGBColorSpace;
  
 // Create a cube and add it to the scene
